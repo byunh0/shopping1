@@ -4,6 +4,8 @@ import PageAll from './page/PageAll'
 import Login from './page/Login'
 import ProductDetail from './page/ProductDetail'
 import Navbar from './component/Navbar'
+import {useState,useEffect} from 'react'
+import {useNavigate} from 'react-router-dom'
 
 //1.페이지가 3개다 : Home화면, 로그인 페이지, 제품 상세 페이지
 //1-1.홈화면에서는 모든 상품들을 볼 수 있다.
@@ -13,12 +15,17 @@ import Navbar from './component/Navbar'
 //5.로그인 버튼이 로그인하면 로그아웃으로 바뀌어 있다.
 //6.검색도 가능하다
 const App = () => {
+  const[authenticate,setAuthenticate]=useState(false)
+  const navigate=useNavigate()
+  useEffect(()=>{
+    navigate('/');
+  },[authenticate])
   return (
     <div>
       <Navbar/>
       <Routes>
         <Route path="/" element={<PageAll/>}/>
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
         <Route path="/productdetail" element={<ProductDetail/>}/>
       </Routes>
     </div>

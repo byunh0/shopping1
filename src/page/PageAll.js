@@ -9,19 +9,22 @@ const getProduct=async()=>{
     let url = "http://localhost:5000/products"
     let response = await fetch(url)
     let data = await response.json()
+    console.log(data);
     setChoseProduct(data);
+   
 }
+
+
 useEffect(()=>{
     getProduct();
 },[])
+
   return (
     <div>
     <Container>
         <Row> 
-            <Col lg={3}> <ProductCard/> </Col>
-            <Col lg={3}> <ProductCard/> </Col>
-            <Col lg={3}> <ProductCard/> </Col>
-            <Col lg={3}> <ProductCard/> </Col>
+           {choseProduct.map((menu)=>{return <Col lg={3}> <ProductCard item={menu}/> </Col>})}
+           
         </Row>
     </Container>
     </div>

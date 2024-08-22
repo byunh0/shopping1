@@ -1,13 +1,13 @@
 import React from 'react'
 
-const ProductCard = () => {
+const ProductCard = ({item}) => {
   return (
     <div>
-        <div>
-        <img src="https://noona-hnm.netlify.app/track-jacket.jpeg" width={350} />
-        <div>Conscious choice</div>
-        <div>아플리케 트랙 재킷</div>
-        <div>99900</div>
+        <div className="productCard-style">
+        <img src={item?.img} width={350} />
+        <div>{`${(item?.choice)?"concious choice":""}`}</div>
+        <div>{item?.title}</div>
+        <div>{item?.price}</div>
         <div>신제품</div>
         </div>
     </div>
