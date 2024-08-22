@@ -6,12 +6,13 @@ const Login = ({setAuthenticate}) => {
     const loginUser = (event)=>{
         event.preventDefault();
         console.log("login user function issue")
-        setAuthenticate(true);
+        return setAuthenticate(true);
+        console.log(setAuthenticate)
     }
   
   return (
     <Container>
-    <Form className="Form-box" onSubmit={(event)=>loginUser}>
+    <Form className="Form-box" onSubmit={loginUser} >
     <Form.Group className="mb-3" controlId="formBasicEmail">
       <Form.Label>Email address</Form.Label>
       <Form.Control type="email" placeholder="Enter email" />
@@ -27,7 +28,7 @@ const Login = ({setAuthenticate}) => {
     <Form.Group className="mb-3" controlId="formBasicCheckbox">
       <Form.Check type="checkbox" label="Check me out" />
     </Form.Group>
-    <Button variant="danger" type="submit" className="login-button-style">
+    <Button variant="danger" type="submit" className="login-button-style" >
       로그인 
     </Button>
   </Form>

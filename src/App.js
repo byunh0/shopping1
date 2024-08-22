@@ -6,7 +6,7 @@ import ProductDetail from './page/ProductDetail'
 import Navbar from './component/Navbar'
 import {useState,useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
-
+import LoginCencer from './rout/LoginCencer'
 //1.페이지가 3개다 : Home화면, 로그인 페이지, 제품 상세 페이지
 //1-1.홈화면에서는 모든 상품들을 볼 수 있다.
 //2.Home화면에 로그인 버튼을 누르면 로그인을 할 수 있다.
@@ -20,13 +20,16 @@ const App = () => {
   useEffect(()=>{
     navigate('/');
   },[authenticate])
+  console.log("newAuthenticate",authenticate)
   return (
     <div>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<PageAll/>}/>
+        <Route path="/" element={<PageAll authenticate={authenticate}/>}/>
         <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
-        <Route path="/productdetail" element={<ProductDetail/>}/>
+        <Route path="/product/:id" element={<LoginCencer authenticate={authenticate} />}/>
+        
+        
       </Routes>
     </div>
   )
