@@ -3,10 +3,12 @@ import {useEffect , useState} from 'react'
 import {useParams} from 'react-router-dom'
 import {Container,Row,Col} from 'react-bootstrap'
 import Form from 'react-bootstrap/Form';
+import {Button} from 'react-bootstrap'
 const ProductDetail = () => {
 const {id} = useParams();
 // 저장해주기
 const [product,setProduct]=useState(null);
+const [num,setnum]=useState(0)
 const getProductDetail=async()=>{
   let url = `http://localhost:5000/products/${id}`
   let response = await fetch(url)
@@ -17,9 +19,14 @@ const getProductDetail=async()=>{
 useEffect(()=>{
 getProductDetail()
 },[])
+
+const clickEvent=()=>{
+const number =setnum(num+1)
+return number;
+}
   return (
   <Container>
-    <Row>
+    <Row className="row-Style">
       {/* 줄 */}
       <Col className="product-img">
        {/* col은 각각의 묶음 */}
@@ -33,15 +40,20 @@ getProductDetail()
       
       <Form.Select aria-label="Default select example">
       <option>Select Size</option>
-              {product?.size?.map((item, index) => (
-                <option key={index} value={item}>
+              {product?.size?.map((item) => (
+                <option  value={item}>
                   {item}
                 </option>
               ))}
     </Form.Select>
-
-     
       </div>
+      <div>
+        <div>수량: {num}</div>
+      <Button variant="dark" onClick={clickEvent}>추가</Button>
+      </div>
+      <Button variant="secondary" size="lg" className="button-style">
+        주문하기
+      </Button>
       </Col>
     </Row>
     </Container>

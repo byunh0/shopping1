@@ -93,3 +93,14 @@ transform:scale(1.05)
   display:flex;
   justify-content:flex-end;
 }
+
+.row-Style{
+  position:relative;
+}
+
+.button-style{
+ position:absolute;
+  right:15px;
+  margin-top:15px;
+  
+}
