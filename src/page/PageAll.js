@@ -30,12 +30,15 @@ useEffect(()=>{
 
 
   return (
-    <div>
+    <div className="pageAll-box">
     <Container>
+      
         <Row> 
+        
            {choseProduct.map((menu)=>{return <Col lg={3} > <ProductCard item={menu}/> </Col>})}
            
         </Row>
+       
     </Container>
     </div>
 

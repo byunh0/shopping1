@@ -6,7 +6,7 @@ const ProductCard = ({item}) => {
         navigate(`/product/${item.id}`)
     }
   return (
-    <div onClick={showDetail}>
+    <div onClick={showDetail} className="productcard-box">
         <div className="productCard-style" >
         <img src={item?.img} width={350} />
         <div>{`${(item?.choice)?"concious choice":""}`}</div>

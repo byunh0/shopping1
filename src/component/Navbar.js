@@ -5,7 +5,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import {useNavigate}from "react-router-dom"
 import {useState} from "react"
 import "../App.css";
-const Navbar = ({authenticate}) => {
+const Navbar = ({authenticate , setAuthenticate}) => {
     const menu =["여성","Divided","남성","신생아/유아","아동","H&M HOME","Sale","지속가능성"]
     const navigate = useNavigate()
     const clickLogin=()=>{
@@ -22,15 +22,30 @@ const Navbar = ({authenticate}) => {
       navigate(`/?q=${keyword}`)
     }
     }
+    const clicktitle=()=>{
+      navigate('/')
+    }
    
   return (
     <div>
     <div className="first-nav">
-    <FontAwesomeIcon icon={faUser}/>
-    {<span className="between-turm" onClick={clickLogin}>로그인</span>}
+   <div>
+    {authenticate?(
+      <div onClick={()=>setAuthenticate(false)}>
+         <FontAwesomeIcon icon={faUser} />
+         <span style={{ cursor: "pointer" }}>로그아웃</span>
+         </div>
+    ):(
+      <div onClick={()=>navigate("/login")}>
+        <FontAwesomeIcon icon={faUser} />
+         <span style={{ cursor: "pointer" }}>로그인</span>
+         </div>
+
+    )}
+   </div>
     </div>
     <div className="second-nav"> 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAYHegUQHJC2L1TEfXRiEtKuVCN6l0lKGAebFxx7-V-njhjl8Atx3q4NxgZey-T1isJPA&usqp=CAU" width={180} height={80}/>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAYHegUQHJC2L1TEfXRiEtKuVCN6l0lKGAebFxx7-V-njhjl8Atx3q4NxgZey-T1isJPA&usqp=CAU" width={180} height={80} onClick={clicktitle}/>
     </div>
     <div className="third-nav">
     {menu.map((item)=>{return <span className="item-style">{item}</span>})}

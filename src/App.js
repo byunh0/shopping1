@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import PageAll from './page/PageAll'
@@ -25,7 +26,7 @@ const App = () => {
   
   return (
     <div>
-      <Navbar authenticate={authenticate}/>
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate}/>
       <Routes>
         <Route path="/" element={<PageAll authenticate={authenticate}/>}/>
         <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>
