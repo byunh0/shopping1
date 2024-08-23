@@ -25,7 +25,7 @@ const App = () => {
   
   return (
     <div>
-      <Navbar/>
+      <Navbar authenticate={authenticate}/>
       <Routes>
         <Route path="/" element={<PageAll authenticate={authenticate}/>}/>
         <Route path="/login" element={<Login setAuthenticate={setAuthenticate}/>}/>

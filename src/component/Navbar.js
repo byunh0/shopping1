@@ -3,27 +3,40 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import {useNavigate}from "react-router-dom"
+import {useState} from "react"
 import "../App.css";
-const Navbar = () => {
+const Navbar = ({authenticate}) => {
     const menu =["여성","Divided","남성","신생아/유아","아동","H&M HOME","Sale","지속가능성"]
     const navigate = useNavigate()
     const clickLogin=()=>{
-        navigate('/login')
+     navigate('/login')
     }
+    const search=(event)=>{
+      //우리가 읽고자하는 값이 event안에 있음.
+    if(event.key==="Enter"){
+      let keyword = event.target.value
+      //이벤트안에 우리가 원하는 value값 있음.//서치하는 추가 조건=쿼리
+      console.log ("keyword",keyword)
+
+      //URL바꿔준다.
+      navigate(`/?q=${keyword}`)
+    }
+    }
+   
   return (
     <div>
     <div className="first-nav">
     <FontAwesomeIcon icon={faUser}/>
-    <span className="between-turm" onClick={clickLogin}>로그인</span>
+    {<span className="between-turm" onClick={clickLogin}>로그인</span>}
     </div>
     <div className="second-nav"> 
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAYHegUQHJC2L1TEfXRiEtKuVCN6l0lKGAebFxx7-V-njhjl8Atx3q4NxgZey-T1isJPA&usqp=CAU" width={180} hieght={80}/>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAYHegUQHJC2L1TEfXRiEtKuVCN6l0lKGAebFxx7-V-njhjl8Atx3q4NxgZey-T1isJPA&usqp=CAU" width={180} height={80}/>
     </div>
     <div className="third-nav">
     {menu.map((item)=>{return <span className="item-style">{item}</span>})}
     <div className="inputbox-nav">
         <FontAwesomeIcon icon={faMagnifyingGlass} />
-        <input type="text" value="검색" maxlength="10" className="between-turm input-design"/>
+        <input type="text" placeholder="검색"  onKeyPress={(event)=>search(event)}  className="between-turm input-design"/>
         </div>
     </div>
     </div>
