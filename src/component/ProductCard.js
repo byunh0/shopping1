@@ -8,11 +8,11 @@ const ProductCard = ({item}) => {
   return (
     <div onClick={showDetail} className="productcard-box">
         <div className="productCard-style" >
-        <img src={item?.img} width={350} />
+        <img src={item?.img} width={350} className="productcard-img"/>
         <div>{`${(item?.choice)?"concious choice":""}`}</div>
         <div>{item?.title}</div>
         <div>{item?.price}</div>
-        <div>신제품</div>
+        <div>{`${(item?.new)?"신제품":""}`}</div>
         </div>
     </div>
   )

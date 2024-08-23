@@ -31,11 +31,11 @@ useEffect(()=>{
 
   return (
     <div className="pageAll-box">
-    <Container>
+    <Container >
       
         <Row> 
         
-           {choseProduct.map((menu)=>{return <Col lg={3} > <ProductCard item={menu}/> </Col>})}
+           {choseProduct.map((menu)=>{return <Col lg={3} md={3} sm={12} > <ProductCard item={menu}/> </Col>})}
            
         </Row>
        

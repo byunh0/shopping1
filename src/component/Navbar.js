@@ -5,9 +5,11 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import {useNavigate}from "react-router-dom"
 import {useState} from "react"
 import "../App.css";
+import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 const Navbar = ({authenticate , setAuthenticate}) => {
     const menu =["여성","Divided","남성","신생아/유아","아동","H&M HOME","Sale","지속가능성"]
     const navigate = useNavigate()
+    let [width, setWidth] = useState(0);
     const clickLogin=()=>{
      navigate('/login')
     }
@@ -27,8 +29,22 @@ const Navbar = ({authenticate , setAuthenticate}) => {
     }
    
   return (
-    <div>
+    <div >
+          <div className="side-menu" style={{ width: width }}>
+          <div className="burger-menu-hide">
+          <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
+        </div>
+        <button className="closebtn" onClick={() => setWidth(0)}>
+          &times;
+        </button>
+        <div className="side-menu-list" id="menu-list">
+          {menu.map((menu, index) => (
+            <button key={index}>{menu}</button>
+          ))}
+        </div>
+      </div>
     <div className="first-nav">
+   
    <div>
     {authenticate?(
       <div onClick={()=>setAuthenticate(false)}>
