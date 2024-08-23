@@ -88,3 +88,8 @@ transform:scale(1.05)
 .login-button-style{
   margin: auto; 
 }
+
+.product-img{
+  display:flex;
+  justify-content:flex-end;
+}

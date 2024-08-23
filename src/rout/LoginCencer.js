@@ -4,9 +4,9 @@ import React from 'react'
 import {Navigate} from 'react-router-dom'
 import ProductDetail from '../page/ProductDetail'
 
-const LoginCencer = ({authenticate}) => {
+const LoginCencer = ({authenticate,choseProduct}) => {
   console.log("authenticate",authenticate)
-  return authenticate==true? <ProductDetail/> :<Navigate to="/login"/>;
+  return authenticate==true? <ProductDetail /> :<Navigate to="/login"/>;
   
 };
 

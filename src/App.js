@@ -21,6 +21,8 @@ const App = () => {
     navigate('/');
   },[authenticate])
   console.log("newAuthenticate",authenticate)
+
+  
   return (
     <div>
       <Navbar/>
