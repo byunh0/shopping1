@@ -88,6 +88,13 @@ transform:scale(1.05)
   
 } */
 
+.burger-menu{
+  margin-left: 20px;
+}
+.hide{
+  visibility:hidden
+}
+
 .login-button-style{
   margin: auto; 
 }
@@ -121,27 +128,71 @@ transform:scale(1.05)
 .hiddenmenu{
   display:none;
 }
-.side-menu{
-  display:none;
+
+.side-menu {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: burlywood;
+  overflow-x: hidden;
+  transition: width 0.5s;
+  padding-top: 60px;
+  z-index: 2;
+  /* 기본적으로 display:none 설정하지 않음 */
 }
+
+.side-menu-list button {
+  margin: 5px;
+  border: none;
+  background: none;
+  width: 120px;
+}
+
+.side-menu .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  border: none;
+  background: none;
+}
+
+.side-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.side-menu-list button:hover {
+  background-color: beige;
+  border-radius: 3px;
+}
+
 @media screen and (max-width: 63rem) {
-.productcard-box{
-  width:80%;
-  max-width:100%;
-  padding:5px;
-}
-.productcard-img{
-  padding:10px;
-  width:90%;
-  max-width:100%;
-}
-.inputbox-nav{
-  display:none;
-}
-.third-nav{
-  display:none;
-}
-.burger-menu-hide{
-display:inline;
-}
+  .hide {
+    visibility: visible;
+  }
+
+  .productcard-box {
+    width: 80%;
+    max-width: 100%;
+    padding: 5px;
+  }
+
+  .productcard-img {
+    padding: 10px;
+    width: 90%;
+    max-width: 100%;
+  }
+
+  .inputbox-nav {
+    display: none;
+  }
+
+  .third-nav {
+    display: none;
+  }
 }

@@ -3,16 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import {useNavigate}from "react-router-dom"
-import {useState} from "react"
+import {useState ,useEffect} from "react"
 import "../App.css";
 import { faBars, faSearch } from "@fortawesome/free-solid-svg-icons";
 const Navbar = ({authenticate , setAuthenticate}) => {
     const menu =["여성","Divided","남성","신생아/유아","아동","H&M HOME","Sale","지속가능성"]
     const navigate = useNavigate()
     let [width, setWidth] = useState(0);
-    const clickLogin=()=>{
-     navigate('/login')
-    }
+ 
     const search=(event)=>{
       //우리가 읽고자하는 값이 event안에 있음.
     if(event.key==="Enter"){
@@ -28,20 +26,27 @@ const Navbar = ({authenticate , setAuthenticate}) => {
       navigate('/')
     }
    
+    useEffect(() => {
+      console.log('Width has been set to:', width);
+  }, [width]); 
   return (
     <div >
           <div className="side-menu" style={{ width: width }}>
-          <div className="burger-menu-hide">
-          <FontAwesomeIcon icon={faBars} onClick={() => setWidth(250)} />
-        </div>
-        <button className="closebtn" onClick={() => setWidth(0)}>
+          <button className="closebtn" onClick={() => setWidth(0)}>
           &times;
         </button>
         <div className="side-menu-list" id="menu-list">
-          {menu.map((menu, index) => (
-            <button key={index}>{menu}</button>
+          {menu.map((menus, index) => (
+            <button key={index}>{menus}</button>
           ))}
         </div>
+        </div>
+        <div className="nav-header">
+        <div className="burger-menu hide">
+          <FontAwesomeIcon icon={faBars} onClick={  () =>  {console.log('Icon clicked');setWidth(250)}} />
+        </div>
+       
+       
       </div>
     <div className="first-nav">
    
