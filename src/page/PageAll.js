@@ -11,7 +11,7 @@ const[choseProduct,setChoseProduct]=useState([])
 const getProduct=async()=>{
   let searchQuery=query.get('q')||"";
   console.log("쿼리 값은?",searchQuery);
-    let url = ` https://my-json-server.typicode.com/byunh0/hayoung-hnm/products?q=${searchQuery}`
+    let url = ` https://my-json-server.typicode.com/byunh0/shopping1/products?q=${searchQuery}`
     let response = await fetch(url)
     let data = await response.json()
    
