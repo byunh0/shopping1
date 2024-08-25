@@ -194,14 +194,14 @@ transform:scale(1.05)
 
   .productcard-box {
     width: 80%;
-    max-width: 100%;
+    max-width: 300px;
     padding: 5px;
   }
 
   .productcard-img {
     padding: 10px;
-    width: 90%;
-    max-width: 100%;
+    width: 100%;
+    height: auto;
   }
 
   .inputbox-nav {
@@ -217,4 +217,13 @@ transform:scale(1.05)
     text-align:center;
   }
 
+ .Form-box{
+  width:auto;
+  height:auto;
+ }
+ .productcard-img{
+  width:100%;
+  height:auto;
+ }
 }
+
