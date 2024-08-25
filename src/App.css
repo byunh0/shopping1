@@ -229,7 +229,7 @@ transform:scale(1.05)
 .product-img{
   justify-content:center;
   align-self:center;
-  width:250px;
+  width:100px;
   padding:10px;
   margin-left:15px;
 }
