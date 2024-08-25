@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'SUIT-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family:'SUIT-Regular';
+  font-size:20px;
+}
+.nav-header{
+  display:flex;
+  justify-content:space-between;
+  margin:20px;
+}
 .first-nav{
   display:flex;
   justify-content:flex-end;
@@ -90,6 +105,7 @@ transform:scale(1.05)
 
 .burger-menu{
   margin-left: 20px;
+  
 }
 .hide{
   visibility:hidden
@@ -195,4 +211,10 @@ transform:scale(1.05)
   .third-nav {
     display: none;
   }
+
+  .row-Style{
+    display:block;
+    text-align:center;
+  }
+
 }

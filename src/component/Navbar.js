@@ -47,8 +47,7 @@ const Navbar = ({authenticate , setAuthenticate}) => {
         </div>
        
        
-      </div>
-    <div className="first-nav">
+   
    
    <div>
     {authenticate?(
