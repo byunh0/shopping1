@@ -27,9 +27,9 @@ return number;
   return (
   <Container>
     <Row className="row-Style">
-      {/* 줄 */}
+   
       <Col className="product-img">
-       {/* col은 각각의 묶음 */}
+      
       <img src = {product?.img}/>
       </Col>
       <Col>
